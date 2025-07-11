@@ -1,0 +1,544 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: url("view/background.jpg") no-repeat center / cover;
+  padding: 30px 5%;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  background: rgba(255,255,255, 0.1);
+  border: 2px solid rgba(255,255,255, 0.2);
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  transform: scale(0);
+  animation: zoom-in 1s ease forwards;
+}
+
+@keyframes zoom-in {
+    100%{
+        transform: scale(1);
+    }
+    
+}
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width for header */
+  padding: 25px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.animated{
+    transform: translateY(30px);
+    opacity: 0;
+    animation: slide-in 1s ease forwards;
+    animation-delay: 1s;
+}
+
+@keyframes slide-in{
+    100%{
+         transform: translateY(0);
+    opacity: 1;
+    }
+}
+.logo {
+  font-size: 25px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navbar a {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 35px;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  border-color: #fff;
+}
+
+section {
+  display: none; /* Hide all sections by default */
+   opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+
+section.active {
+  display: flex;
+   opacity: 1;
+  visibility: visible;
+  position: relative;
+  align-items: center;
+  justify-content: space-evenly;
+  height: calc(100vh - 100px);
+  gap: 50px;
+  padding: 50px 5% 0;
+  color: #fff;
+  animation-delay: 1.5s;
+}
+
+/* Home Section */
+.home, .about, .projects{
+  align-items: center;
+  justify-content: space-betw
+  ;
+  height: calc(100vh - 100px); /* Leaves room for header */
+  gap: 50px;
+  padding: 50px 5% 0;
+  color: #fff;
+  animation-delay: 1s;
+}
+
+.home-details h1 {
+  font-size: 55px;
+  line-height: 1;
+}
+
+.home-details h3 {
+  font-size: 32px;
+}
+
+.home-details p {
+  margin: 10px 0 20px;
+}
+
+.home-details .social-media{
+    display:flex;
+    align-items: center;
+}
+.home-details .social-media {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* spacing between icons */
+    margin-top: 20px; /* space from text/buttons */
+}
+
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.4s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.social-media a:hover {
+    background: #fff;
+    color: #081b29; /* your background color for contrast */
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #fff;
+}
+
+.btn a {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #ffffffcc; /* Slightly transparent white background */
+  color: #333; /* Darker text color for better readability */
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none; /* Removes underline */
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: all 0.3s ease;
+}
+
+.btn a:hover {
+  background: #f0f0f0; /* Slightly darker background on hover */
+  color: #000; /* Slightly darker text on hover */
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.home-img .img-box {
+  position: relative;
+  width: 28vw;
+  height: 28vw;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #fff;
+  overflow: hidden;
+}
+
+.home-img .img-box img {
+  position: absolute; /* fixed typo: absolut → absolute */
+  top: 0; /* align image properly */
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem; /* Reduced from larger gap to 20px *//* Adjust padding if needed */
+}
+.about-img {
+  width: 25vw;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:50px;
+  padding: 0;
+}
+
+.about-img img {
+  width: 25vw;           /* narrower width */
+  height: 450px;            /* taller height for vertical rectangle */
+  border-radius: 20px;      /* rounded edges */
+  object-fit: cover;        /* keep image proportions */
+  border: 3px solid #fff;   /* white border */
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); /* subtle white glow */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-img img:hover {
+  transform: scale(1.05);   /* slight zoom on hover */
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.8); /* brighter glow on hover */
+}
+
+
+.about-content h2 {
+  text-align: left;
+  line-height: 1.2;
+}
+
+
+.about-content p{
+  font-size: 1.6rem;
+  margin: 1rem 0 1rem;
+  
+}
+.about-content .heading {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #ffffff; /* White heading */
+  position: relative;
+}
+
+.about-content .heading::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background: #ffffff; /* White underline */
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  border-radius: 5px;
+}
+
+.about-content h3 {
+  font-size: 2rem;
+  margin: 30px 0 15px 0;
+  color: #ffffff;
+text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.8), /* Soft white glow */
+    0 0 10px rgba(0, 0, 0, 0.6),      /* Subtle dark glow */
+    0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.about-content p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #e0e0e0; 
+  text-align: justify;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7), /* soft black glow */
+               0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.about-content .btn a {
+  display: inline-block;
+  padding: 12px 30px;
+  background: transparent;
+  border: 2px solid #ffffff; /* White border */
+  color: #ffffff; /* White text */
+  border-radius: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.about-content .btn a:hover {
+  background: #ffffff; /* White background on hover */
+  color: #081b29; /* Dark text for contrast */
+  box-shadow: 0 0 20px #ffffff;
+}
+
+/* Read More Button Styling */
+#read-more-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ffffff; /* White button background */
+  color: #081b29; /* Dark text for contrast */
+  border: none;
+  border-radius: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+#read-more-btn:hover {
+  background: #f0f0f0; /* Slightly off-white hover effect */
+  color: #000000; /* Black text on hover */
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+}
+
+#more-text {
+  max-height: 0; /* Start hidden */
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  display: block; /* Make sure it's block for height calculation */
+}
+
+#more-text.show {
+  max-height: 500px; /* Large enough to fit content */
+  opacity: 1;
+}
+.projects {
+  padding: 50px 5%;
+  color: #ffffff; /* White text */
+  min-height: 100vh;
+  display: none; /* Hidden by default for toggle */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.projects.active {
+  display: block; /* Show when active */
+  opacity: 1;
+  visibility: visible;
+}
+
+.projects .section-title {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #fff; /* Accent color */
+  text-shadow:  0 0 12px rgba(255, 255, 255, 0.755);
+}
+
+/* Container for Project Cards */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+.project-card {
+  position: relative; /* For positioning overlay text */
+  height: 480px; /* Set height for the entire card */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.project-card img {
+  position: absolute; /* Make the image fill the card */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.project-info {
+  position: absolute; /* Overlay text on top of image */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.project-info h3 {
+  font-size: 1.6rem;
+  color: #fff; /* Accent color */
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  font-size: 1rem;
+  color: #e0e0e0;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.project-card a {
+  display: inline-block;
+  padding: 10px 25px; /* Bigger padding for a premium look */
+  background: #fff; /* Transparent background */
+  border: 2px solid #ffffff; /* White border */
+    color: #081b29;
+  border-radius: 30px; /* Rounded pill shape */
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.project-card a:hover {
+  background: #ffffff; /* White background on hover */
+  color: #081b29; /* Dark text for contrast */
+  box-shadow: 0 0 20px #ffffff; /* Glow effect */
+}
+
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
+.contact {
+  padding: 50px 5%;
+  background: transparent;
+  color: #ffffff;
+  text-align: center;
+}
+
+.contact .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.755);
+}
+
+.contact-text {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  margin: 10px auto 25px;
+  max-width: 600px;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column; /* Stack all elements vertically */
+  gap: 20px; /* Space between form & info */
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.contact-form .btn {
+   display: inline-block;
+  padding: 12px 30px;
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  border-radius: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.contact-form .btn:hover {
+  background: #e0e0e0;
+  color: #081b29;
+  box-shadow: 0 0 15px #ffffff;
+}
+
+.contact-info {
+  margin-top: 10px;
+}
+
+.contact-info p {
+  font-size: 0.95rem;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.social-links {
+  margin-top: 12px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 1.4rem;
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
